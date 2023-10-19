@@ -1,2 +1,2 @@
-# TB-TriangleStrategy
+# TB-ScalesOfConviction
 Turn Based Game Assignment
