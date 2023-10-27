@@ -73,6 +73,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Effect B
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 16c166fcac8b6664e9a09cff0b955e50,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8656985734479921854, guid: 16c166fcac8b6664e9a09cff0b955e50,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: -8943177512946541315, guid: 16c166fcac8b6664e9a09cff0b955e50, type: 3}

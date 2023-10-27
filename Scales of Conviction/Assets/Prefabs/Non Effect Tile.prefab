@@ -63,6 +63,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Non Effect Tile
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 16c166fcac8b6664e9a09cff0b955e50,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 2692345117903491588, guid: 16c166fcac8b6664e9a09cff0b955e50,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: -4696066367267915213, guid: 16c166fcac8b6664e9a09cff0b955e50, type: 3}
