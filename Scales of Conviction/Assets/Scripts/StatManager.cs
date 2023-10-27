@@ -2,12 +2,22 @@ using UnityEngine;
 
 public class StatManager : MonoBehaviour
 {
+    // Point system
     public float playerPoints;
     public float enemyPoints;
     public float pointsToAdd;
     public float pointsToRemove;
+
+    // Timer
+    public bool playerTurn = true;  //SET TO TRUE FOR PLAYTESTING, DONT FORGET TO SET IT TO FALSE TO START NORMALLY !!!!
+    public float turnDuration = 30f;
+    float timeLeft;
+
+    // References
     public GameObject player;
     public Transform playerPosition;
+
+    // Singleton instantiation
     private static StatManager instance;
     public static StatManager Instance
     {
@@ -21,6 +31,7 @@ public class StatManager : MonoBehaviour
         }
     }
 
+
     void Start()
     {
         DontDestroyOnLoad(this);
@@ -29,8 +40,8 @@ public class StatManager : MonoBehaviour
 
     void Update()
     {
-        playerPosition = player.transform;
-        Debug.Log(playerPosition);
+        //playerPosition = player.transform;
+       // Debug.Log(playerPosition);
     }
 
     public void AddPlayerPoints()
@@ -52,4 +63,22 @@ public class StatManager : MonoBehaviour
     {
         enemyPoints -= pointsToRemove;
     }
+
+    public void StartTime()
+    {
+        playerTurn = true;
+        timeLeft = turnDuration;
+        timeLeft -= Time.deltaTime;
+
+        if (timeLeft == 0)
+        {
+            StopTime();
+        }
+    }
+
+    public void StopTime()
+    {
+        playerTurn = false;
+    }
+
 }
