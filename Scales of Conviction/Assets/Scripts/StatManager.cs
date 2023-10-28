@@ -17,7 +17,28 @@ public class StatManager : MonoBehaviour
     public GameObject player;
     public Transform playerPosition;
 
-    // Singleton instantiation
+    // PLAYER COMBAT ATTRIBUTES
+    public int playerStr;
+    public int playerDex;
+    public int playerVit;
+    public int playerMnd;
+    public int playerSpd;
+
+    public float playerBaseHP;
+    public float playerHP;
+    public float playerAP;
+
+    // ENEMY COMBAT ATTRIBUTES
+    public int enemyStr;
+    public int enemyDex;
+    public int enemyVit;
+    public int enemyMnd;
+    public int enemySpd;
+
+    public float enemyBaseHP;
+    public float enemyHP;
+    public float enemyAP;
+
     private static StatManager instance;
     public static StatManager Instance
     {
@@ -81,4 +102,12 @@ public class StatManager : MonoBehaviour
         playerTurn = false;
     }
 
+
+    public void StatCalculation()
+    {
+        playerHP = (playerVit * playerBaseHP) / 2;
+        Debug.Log(playerVit + " player Vitality x " + playerBaseHP + " + player Base HP = " + playerHP);
+        enemyHP = (enemyVit * enemyBaseHP) / 2;
+        Debug.Log(enemyVit + " enemy Vitality x " + enemyBaseHP + " + enemy Base HP = " + enemyHP);
+    }
 }
