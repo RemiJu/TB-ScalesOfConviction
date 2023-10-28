@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 2159.8762, g: 2264.2522, b: 3287.5981, a: 1}
+  m_IndirectSpecularColor: {r: 2159.1594, g: 2263.6077, b: 3287.2114, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -12007,11 +12007,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player Icon
-      objectReference: {fileID: 0}
-    - target: {fileID: 3741284653441817904, guid: 8f5404157cc6f8a45a46ffa1b8f0bfe4,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4080373676434081674, guid: 8f5404157cc6f8a45a46ffa1b8f0bfe4,
         type: 3}
