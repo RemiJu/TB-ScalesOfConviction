@@ -24,7 +24,7 @@ RenderSettings:
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
-  m_AmbientMode: 0
+  m_AmbientMode: 4
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 0}
   m_HaloStrength: 0.5
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 262.1177, g: 324.74368, b: 429.81012, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -196,6 +196,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7318329185877625375, guid: f03bdc02b08bd2b4c8bbdcfc28aa903d,
     type: 3}
   m_PrefabInstance: {fileID: 15573262}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &30864067 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4080373676434081674, guid: 8f5404157cc6f8a45a46ffa1b8f0bfe4,
+    type: 3}
+  m_PrefabInstance: {fileID: 3360561134553009537}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &44762367
 PrefabInstance:
@@ -9530,6 +9536,7 @@ GameObject:
   - component: {fileID: 1823688466}
   - component: {fileID: 1823688465}
   - component: {fileID: 1823688468}
+  - component: {fileID: 1823688469}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -9604,13 +9611,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1823688464}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.052503265, y: -0, z: -0, w: 0.99862075}
+  m_LocalRotation: {x: 0.13917309, y: 0, z: 0, w: 0.9902681}
   m_LocalPosition: {x: 0, y: 7, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 6.019, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 16, y: 0, z: 0}
 --- !u!114 &1823688468
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9740,6 +9747,21 @@ MonoBehaviour:
       enableFptlForForwardOpaque: 0
       enableBigTilePrepass: 0
       isFptlEnabled: 0
+--- !u!114 &1823688469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1823688464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5210f40bb581e6f46a61db00c9bdb118, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 30864067}
+  offset: {x: 0, y: 8, z: -10}
+  smomothSpeed: 5
 --- !u!1001 &1824300289
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11722,32 +11744,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2137754127}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &2142873363 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5984506946441940175, guid: bc4cd56f5b1c49a41885974b99225b1c,
-    type: 3}
-  m_PrefabInstance: {fileID: 5032409672220379332}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2142873370
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2142873363}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6eeb5dc026fdf4b488bc7ae0138ab719, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_AgentTypeID: 0
-  m_StartPoint: {x: 0, y: 0, z: -2.5}
-  m_EndPoint: {x: 0, y: 0, z: 2.5}
-  m_Width: 0
-  m_CostModifier: -1
-  m_Bidirectional: 1
-  m_AutoUpdatePosition: 0
-  m_Area: 0
 --- !u!1001 &114832061527519058
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11811,11 +11807,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Merchant Icon
       objectReference: {fileID: 0}
-    - target: {fileID: 6872749543111051708, guid: ee26656777f4c3f4aa2f880e3d5fffa2,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11834,15 +11825,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player Icon
       objectReference: {fileID: 0}
-    - target: {fileID: 3741284653441817904, guid: 8f5404157cc6f8a45a46ffa1b8f0bfe4,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4080373676434081674, guid: 8f5404157cc6f8a45a46ffa1b8f0bfe4,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4
+      value: -5.84
       objectReference: {fileID: 0}
     - target: {fileID: 4080373676434081674, guid: 8f5404157cc6f8a45a46ffa1b8f0bfe4,
         type: 3}
@@ -12054,11 +12040,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy Icon
       objectReference: {fileID: 0}
-    - target: {fileID: 5984506946441940175, guid: bc4cd56f5b1c49a41885974b99225b1c,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6361033142248658549, guid: bc4cd56f5b1c49a41885974b99225b1c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -12112,11 +12093,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5984506946441940175, guid: bc4cd56f5b1c49a41885974b99225b1c,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2142873370}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc4cd56f5b1c49a41885974b99225b1c, type: 3}
 --- !u!1001 &5318052852616197525
 PrefabInstance:
