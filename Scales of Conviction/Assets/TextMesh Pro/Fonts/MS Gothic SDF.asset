@@ -73,7 +73,11 @@ Material:
     serializedVersion: 3
     m_TexEnvs: []
     m_Ints: []
-    m_Floats: []
+    m_Floats:
+    - _ScaleRatioA: 0.8333333
+    - _ScaleRatioB: 0.6770833
+    - _ScaleRatioC: 0.27658632
+    - _WeightBold: 0.75
     m_Colors: []
   m_BuildTextureStacks: []
 --- !u!114 &11400000

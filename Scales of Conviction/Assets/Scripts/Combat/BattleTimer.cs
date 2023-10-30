@@ -21,6 +21,15 @@ public class BattleTimer : MonoBehaviour
 
     private void Awake()
     {
+        switch (turn)
+        {
+            case whoseTurn.Player:
+                speedMultiplier = StatManager.Instance.playerSpdMult;
+                break;
+            case whoseTurn.Opponent:
+                speedMultiplier = StatManager.Instance.enemySpdMult;
+                break;
+        }
         StartTimer();
         turnManager = GameObject.Find("TurnManager").GetComponent<TurnManager>();
     }
