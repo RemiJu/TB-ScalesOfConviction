@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 399849054566713133}
   - component: {fileID: 690087720117424361}
+  - component: {fileID: 7479810910996052567}
   m_Layer: 0
   m_Name: TriggerDetector
   m_TagString: Untagged
@@ -53,6 +54,20 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 2.5
   m_Center: {x: 0, y: 1.75, z: 0}
+--- !u!114 &7479810910996052567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2214746295992364673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4202cff4a4de01c4c8897bc8c04c3bc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  behaviour: {fileID: 8910112476492151351}
+  chaseTarget: {x: 0, y: 0, z: 0}
 --- !u!1001 &6026239176105653485
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -89,12 +104,12 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: ee8fd276619270e48af80ab39beddf08,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ee8fd276619270e48af80ab39beddf08,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ee8fd276619270e48af80ab39beddf08,
         type: 3}
@@ -133,6 +148,14 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 6334208702183011780}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ee8fd276619270e48af80ab39beddf08,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8910112476492151351}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ee8fd276619270e48af80ab39beddf08,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5869543691354823609}
   m_SourcePrefab: {fileID: 100100000, guid: ee8fd276619270e48af80ab39beddf08, type: 3}
 --- !u!4 &6065004988859192070 stripped
 Transform:
@@ -169,3 +192,48 @@ CapsuleCollider:
   m_Height: 1.5
   m_Direction: 1
   m_Center: {x: 0, y: 1.75, z: 0}
+--- !u!114 &8910112476492151351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6872749543111051708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82956f8d05e35be4f8dc9041113bc3a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  state: 0
+  loS: {fileID: 7479810910996052567}
+  chasing: 0
+  navigator: {fileID: 5869543691354823609}
+  floorBounds:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 0, y: 0, z: 0}
+  targetPoint: {x: 0, y: 0, z: 0}
+  targetReticle: {fileID: 1101279237139305849, guid: 14deab11bac876e49b9dfe3f0b714788,
+    type: 3}
+  offSetY: 3
+--- !u!195 &5869543691354823609
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6872749543111051708}
+  m_Enabled: 1
+  m_AgentTypeID: -1372625422
+  m_Radius: 0.61432976
+  m_Speed: 1
+  m_Acceleration: 2
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 1.5
+  m_BaseOffset: -1
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4

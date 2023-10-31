@@ -23,19 +23,19 @@ public class Player : MonoBehaviour
 
     void GetInput()
     {
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.D) && StatManager.Instance.playerTurn == true)
         {
             rb.velocity = new Vector3(1,0, 0) * speed * Time.deltaTime;
         }
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.A) && StatManager.Instance.playerTurn == true)
         {
             rb.velocity = new Vector3(-1, 0, 0) * speed * Time.deltaTime;
         }
-        if (Input.GetKey(KeyCode.W))
+        if (Input.GetKey(KeyCode.W) && StatManager.Instance.playerTurn == true)
         {
             rb.velocity = new Vector3(0, 0, 1) * speed * Time.deltaTime;
         }
-        if (Input.GetKey(KeyCode.S))
+        if (Input.GetKey(KeyCode.S) && StatManager.Instance.playerTurn == true)
         {
             rb.velocity = new Vector3(0, 0, -1) * speed * Time.deltaTime;
         }
@@ -46,6 +46,10 @@ public class Player : MonoBehaviour
         if (collision.gameObject.tag == "Enemy")
         {
             SceneManager.LoadScene("Combat");
+        }
+        if (collision.gameObject.tag == "Merchant")
+        {
+            //Include Shop System Here
         }
     }
 

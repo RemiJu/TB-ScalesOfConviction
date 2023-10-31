@@ -8,6 +8,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -9099454070064084015, guid: 16c166fcac8b6664e9a09cff0b955e50,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 16c166fcac8b6664e9a09cff0b955e50,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -77,6 +82,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Wall Tile
+      objectReference: {fileID: 0}
+    - target: {fileID: 2692345117903491588, guid: 16c166fcac8b6664e9a09cff0b955e50,
+        type: 3}
+      propertyPath: m_TagString
+      value: Wall
       objectReference: {fileID: 0}
     - target: {fileID: 2692345117903491588, guid: 16c166fcac8b6664e9a09cff0b955e50,
         type: 3}

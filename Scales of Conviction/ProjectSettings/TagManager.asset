@@ -8,6 +8,11 @@ TagManager:
   - Affecting
   - Enemy
   - Merchant
+  - Effect A
+  - Effect B
+  - Effect C
+  - Effect D
+  - Wall
   layers:
   - Default
   - TransparentFX
