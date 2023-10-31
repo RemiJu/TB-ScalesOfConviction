@@ -70,11 +70,12 @@ public class NPCBehaviour : MonoBehaviour
         switch (state)
         {
             case State.Idle:
-                //navigator.enabled = false;
+                navigator.enabled = false;
                 break;
 
             case State.Active:
-                //navigator.enabled = true; 
+                navigator.enabled = true;
+                navigator.SetDestination(targetPoint);
                 break;
         }
 
