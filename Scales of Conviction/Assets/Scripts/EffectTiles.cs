@@ -13,13 +13,13 @@ public class EffectTiles : MonoBehaviour
         {
             if (other.gameObject.tag == "Player")
             {
-                StatManager.Instance.playerAcc += increment;
+                StatManager.Instance.playerStr += increment;
                 StatManager.Instance.playerAP += halfIncrement;
                 StatManager.Instance.playerPoints += ApUp;
             }
             else if (other.gameObject.tag == "Enemy")
             {
-                StatManager.Instance.enemyAcc += increment;
+                StatManager.Instance.enemyStr += increment;
                 StatManager.Instance.enemyAP += halfIncrement;
                 StatManager.Instance.enemyPoints += ApUp;
             }
