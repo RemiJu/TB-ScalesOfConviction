@@ -9,8 +9,9 @@ public class StatManager : MonoBehaviour
     public float pointsToRemove;
 
     // Timer
-    public bool playerTurn = true;  
-    public float turnDuration = 15f;
+    public bool playerTurn = true;
+    public bool enemyTurn = false;
+    public float turnDuration = 8f;
     public float timeLeft;
 
     // References
@@ -79,62 +80,78 @@ public class StatManager : MonoBehaviour
     {
         DontDestroyOnLoad(this);
         GameObject player = GameObject.Find("Player");
-        StartTime();
+        StartPlayerTurn();
     }
 
     void Update()
     {
-        if (timeLeft > 0f)
+        if (playerTurn == true && timeLeft > 0f)
         {
-            RunTime();
+            RunPlayerTurn();
         }
+
+        if (enemyTurn == true && timeLeft > 0f)
+        {
+            RunEnemyTurn();
+        }
+
     }
 
+    #region PlayerTurn
 
-   /* public void AddPlayerPoints()
-    {
-        playerPoints += pointsToAdd;
-    }
-
-    public void RemovePlayerPoints()
-    {
-        playerPoints -= pointsToRemove;
-    }
-
-    public void AddEnemyPoints()
-    {
-        enemyPoints += pointsToAdd;
-    }
-
-    public void RemoveEnemyPoints()
-    {
-        enemyPoints -= pointsToRemove;
-    }*/
-
-    public void StartTime()
+    public void StartPlayerTurn()
     {
         playerTurn = true;
         timeLeft = turnDuration;
-        RunTime();
-              
+        RunPlayerTurn();            
     }
 
-    public void RunTime()
+    public void RunPlayerTurn()
     {
         timeLeft -= Time.deltaTime;
 
         if (timeLeft <= 0.0f)
         {
             timeLeft = 0f;
-            StopTime();
+            StopPlayerTurn();
         }
     }
 
-    public void StopTime()
+    public void StopPlayerTurn()
     {
         playerTurn = false;
+        StartEnemyTurn();
     }
 
+    #endregion
+
+    #region EnemyTurn
+
+    public void StartEnemyTurn()
+    {
+        enemyTurn = true;
+        timeLeft = turnDuration;
+        RunEnemyTurn();
+    }
+
+    public void RunEnemyTurn()
+    {
+        timeLeft -= Time.deltaTime;
+
+        if (timeLeft <= 0.0f)
+        {
+            timeLeft = 0f;
+            StopEnemyTurn();
+        }
+    }
+
+    public void StopEnemyTurn()
+    {
+        enemyTurn = false;
+        StartPlayerTurn();
+    }
+
+    #endregion
 
     public void StatCalculation()
     {

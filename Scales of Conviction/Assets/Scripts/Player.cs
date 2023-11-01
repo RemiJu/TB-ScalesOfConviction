@@ -13,7 +13,7 @@ public class Player : MonoBehaviour
         rb = GetComponent<Rigidbody>();   
     }
 
-    void Update()
+    void FixedUpdate()
     {
         if (StatManager.Instance.playerTurn == true)
         {
@@ -47,10 +47,10 @@ public class Player : MonoBehaviour
         {
             SceneManager.LoadScene("Combat");
         }
-        if (collision.gameObject.tag == "Merchant")
+        /*if (collision.gameObject.tag == "Merchant")
         {
             //Include Shop System Here
-        }
+        }*/
     }
 
 }
