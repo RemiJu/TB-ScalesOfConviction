@@ -67,7 +67,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   behaviour: {fileID: 3693785319471126956}
-  chaseTarget: {x: 0, y: 0, z: 0}
 --- !u!1001 &6902985296347574686
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -257,13 +256,14 @@ MonoBehaviour:
   state: 0
   loS: {fileID: 876297484451694853}
   chasing: 0
-  navigator: {fileID: 3263665197522071949}
   floorBounds:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0, y: 0, z: 0}
   targetPoint: {x: 0, y: 0, z: 0}
   targetReticle: {fileID: 0}
   offSetY: 3
+  playerTarget: {fileID: 0}
+  loSTrigger: {fileID: 3532289860204633735}
 --- !u!195 &3263665197522071949
 NavMeshAgent:
   m_ObjectHideFlags: 0

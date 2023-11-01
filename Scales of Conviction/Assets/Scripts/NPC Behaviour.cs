@@ -25,6 +25,7 @@ public class NPCBehaviour : MonoBehaviour
     public GameObject targetReticle; // visualizer for current goal of AI
     public float offSetY = 2f; //Offset height for target visualizer
     public GameObject playerTarget;
+    public GameObject loSTrigger;
 
     // Start is called before the first frame update
     void Start()
@@ -71,10 +72,12 @@ public class NPCBehaviour : MonoBehaviour
         {
             case State.Idle:
                 navigator.enabled = false;
+                loSTrigger.GetComponent<Collider>().enabled = false;
                 break;
 
             case State.Active:
                 navigator.enabled = true;
+                loSTrigger.GetComponent<Collider>().enabled = true; 
                 navigator.SetDestination(targetPoint);
                 break;
         }
