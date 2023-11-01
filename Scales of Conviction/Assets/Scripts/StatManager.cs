@@ -9,9 +9,9 @@ public class StatManager : MonoBehaviour
     public float pointsToRemove;
 
     // Timer
-    public bool playerTurn = true;  //SET TO TRUE FOR PLAYTESTING, DONT FORGET TO SET IT TO FALSE TO START NORMALLY !!!!
-    public float turnDuration = 30f;
-    float timeLeft;
+    public bool playerTurn = true;  
+    public float turnDuration = 15f;
+    public float timeLeft;
 
     // References
     public GameObject player;
@@ -74,19 +74,24 @@ public class StatManager : MonoBehaviour
             instance = this;
         }
     }
+
     void Start()
     {
         DontDestroyOnLoad(this);
         GameObject player = GameObject.Find("Player");
+        StartTime();
     }
 
     void Update()
     {
-        //playerPosition = player.transform;
-       // Debug.Log(playerPosition);
+        if (timeLeft > 0f)
+        {
+            RunTime();
+        }
     }
 
-    public void AddPlayerPoints()
+
+   /* public void AddPlayerPoints()
     {
         playerPoints += pointsToAdd;
     }
@@ -104,16 +109,23 @@ public class StatManager : MonoBehaviour
     public void RemoveEnemyPoints()
     {
         enemyPoints -= pointsToRemove;
-    }
+    }*/
 
     public void StartTime()
     {
         playerTurn = true;
         timeLeft = turnDuration;
+        RunTime();
+              
+    }
+
+    public void RunTime()
+    {
         timeLeft -= Time.deltaTime;
 
-        if (timeLeft == 0)
+        if (timeLeft <= 0.0f)
         {
+            timeLeft = 0f;
             StopTime();
         }
     }
