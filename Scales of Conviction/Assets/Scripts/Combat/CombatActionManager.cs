@@ -102,6 +102,8 @@ public class CombatActionManager : MonoBehaviour
         playerDmgRecd.gameObject.SetActive(true);
         playerDmgRecd.color = new Color(0.2f, 0.88f, 0.22f, 1);
         playerDmgRecd.text = (damageOutput.ToString());
+        StatManager.Instance.playerHP += damageOutput;
+        isResting = false;
         StartCoroutine(DamageDisplay());
     }
 
@@ -111,6 +113,7 @@ public class CombatActionManager : MonoBehaviour
         {
             StatManager.Instance.enemyHP -= damageOutput;
             Debug.Log("removing " + damageOutput + " from enemy");
+            StatManager.Instance.playerDmgDealtTotal = StatManager.Instance.playerDmgDealtTotal + damageOutput;
             isAttacking = false;
         }
         if(isDefending)
@@ -134,6 +137,7 @@ public class CombatActionManager : MonoBehaviour
             isDefending = false;
         }
         StatManager.Instance.playerHP -= damageOutput;
+        StatManager.Instance.playerDmgRecdTotal = StatManager.Instance.playerDmgRecdTotal + damageOutput;
         Debug.Log("removing " + damageOutput + " from player");
     }
 
@@ -145,6 +149,7 @@ public class CombatActionManager : MonoBehaviour
         if(turnManager.playersTurn) // Resets the timer at the end of the action.
         {
             turnManager.playerTurnCount += 1;
+            StatManager.Instance.totalTurns += 1;
             playerBattleTimer.ResetTimer();
             turnManager.playersTurn = false;
             playerBattleTimer.StartTimer();
@@ -174,11 +179,6 @@ public class CombatActionManager : MonoBehaviour
         enemyDmgRecd.color = new Color(1, 1, 1, 1);
         playerDmgRecd.gameObject.SetActive(false);
         enemyDmgRecd.gameObject.SetActive(false);
-        if(isResting)
-        {
-            damageOutput = damageOutput + (-damageOutput); // changes to a negative number so it heals instead of damages
-            StatManager.Instance.playerHP = StatManager.Instance.playerHP + damageOutput;
-            isResting = false;
-        }
+
     }
 }

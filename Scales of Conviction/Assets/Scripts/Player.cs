@@ -45,6 +45,7 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy")
         {
+            StatManager.Instance.StatCalculation();
             SceneManager.LoadScene("Combat");
         }
         /*if (collision.gameObject.tag == "Merchant")

@@ -2712,7 +2712,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameOverScene: Game Over
-  victoryScene: Title
+  victoryScene: Game Over
 --- !u!4 &827033348
 Transform:
   m_ObjectHideFlags: 0

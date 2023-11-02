@@ -20,8 +20,8 @@ public class StatManager : MonoBehaviour
 
     // PLAYER COMBAT ATTRIBUTES
     public int playerStr;
-    public int playerDex;
-    public int playerVit;
+    public int playerDex = 1;
+    public int playerVit = 1;
     public int playerMnd;
     public int playerSpd;
     public float playerBaseHP = 100;
@@ -33,11 +33,15 @@ public class StatManager : MonoBehaviour
     public float playerRestHP; // Amount of HP healed on 'Rest' based on Mind
     public float playerSpdMult; // Speed multiplier on turn speed based on Spd
 
+    public int playerDmgDealtTotal;
+    public int playerDmgRecdTotal;
+    public int totalTurns;
+
 
     // ENEMY COMBAT ATTRIBUTES
     public int enemyStr;
-    public int enemyDex;
-    public int enemyVit;
+    public int enemyDex = 1;
+    public int enemyVit = 1;
     public int enemyMnd;
     public int enemySpd;
     public float enemyBaseHP = 100;
