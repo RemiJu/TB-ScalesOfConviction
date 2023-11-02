@@ -43,6 +43,7 @@ public class PlayerPanelScript : MonoBehaviour
     {
         // This function is triggered when Button 2 is clicked
         Debug.Log("Button 2 was clicked!");
+        actionManager.CommandDefend();
         // Add your custom logic for Button 2 here
     }
 
@@ -50,6 +51,7 @@ public class PlayerPanelScript : MonoBehaviour
     {
         // This function is triggered when Button 3 is clicked
         Debug.Log("Button 3 was clicked!");
+        actionManager.CommandRest();
         // Add your custom logic for Button 3 here
     }
 }

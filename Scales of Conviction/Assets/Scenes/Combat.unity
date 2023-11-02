@@ -1057,6 +1057,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 432482234}
+  - component: {fileID: 432482235}
   m_Layer: 5
   m_Name: EnemyValuePanel
   m_TagString: Untagged
@@ -1089,6 +1090,23 @@ RectTransform:
   m_AnchoredPosition: {x: 560.58, y: -20.5}
   m_SizeDelta: {x: 428.66998, y: 91}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &432482235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 432482233}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87d902f63310c224da9deed5c805cc56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  whoseHP: 1
+  totalHealthText: {fileID: 349013460}
+  currentHealthText: {fileID: 435605819}
+  capturedMaxHealth: 0
+  updateMaxHPInRealtime: 0
 --- !u!1 &435605817
 GameObject:
   m_ObjectHideFlags: 0
@@ -2664,6 +2682,52 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 815138026}
   m_CullTransparentMesh: 1
+--- !u!1 &827033346
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 827033348}
+  - component: {fileID: 827033347}
+  m_Layer: 0
+  m_Name: Victory Checker
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &827033347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 827033346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86e11a87ba9c2a148baea39ac2413b61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameOverScene: Game Over
+  victoryScene: Title
+--- !u!4 &827033348
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 827033346}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &856637816
 GameObject:
   m_ObjectHideFlags: 0
@@ -2831,6 +2895,12 @@ MonoBehaviour:
   turnManager: {fileID: 746315830}
   playerBattleTimer: {fileID: 220091777}
   enemyBattleTimer: {fileID: 604319185}
+  playerDmgRecd: {fileID: 1115982548}
+  enemyDmgRecd: {fileID: 279051279}
+  damageOutput: 0
+  isAttacking: 0
+  isResting: 0
+  isDefending: 0
 --- !u!4 &969648477
 Transform:
   m_ObjectHideFlags: 0
@@ -6037,6 +6107,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1884965059}
+  - component: {fileID: 1884965060}
   m_Layer: 5
   m_Name: PlayerValuePanel
   m_TagString: Untagged
@@ -6069,6 +6140,23 @@ RectTransform:
   m_AnchoredPosition: {x: -511.535, y: -20.5}
   m_SizeDelta: {x: 428.66998, y: 91}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1884965060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1884965058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87d902f63310c224da9deed5c805cc56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  whoseHP: 0
+  totalHealthText: {fileID: 2081362850}
+  currentHealthText: {fileID: 975413753}
+  capturedMaxHealth: 0
+  updateMaxHPInRealtime: 0
 --- !u!1 &1938122044
 GameObject:
   m_ObjectHideFlags: 0
@@ -6827,3 +6915,4 @@ SceneRoots:
   - {fileID: 377198698}
   - {fileID: 1511632895}
   - {fileID: 969648477}
+  - {fileID: 827033348}

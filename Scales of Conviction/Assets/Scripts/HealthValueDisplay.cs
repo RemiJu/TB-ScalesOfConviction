@@ -36,6 +36,11 @@ public class HealthValueDisplay : MonoBehaviour
 
                 break;
             case whoseHealth.Opponent:
+                if (currentHealthText != null)
+                {
+                    currentHealthText.text = StatManager.Instance.enemyHP.ToString();
+                }
+                if (updateMaxHPInRealtime) UpdateMaxHealth();
                 break;
         }
     }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class InputFieldStats : MonoBehaviour
 {
@@ -16,14 +17,14 @@ public class InputFieldStats : MonoBehaviour
     }
     public bool isOpponent;
     public statGoesTo whichStatGoesTo;
-    private InputField inputField;
+    private TMP_InputField inputField;
     public int inputInt;
 
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        inputField = GetComponent<InputField>();
+        inputField = GetComponent<TMP_InputField>();
     }
 
     // Update is called once per frame

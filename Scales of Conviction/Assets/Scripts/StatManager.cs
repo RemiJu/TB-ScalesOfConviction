@@ -24,7 +24,7 @@ public class StatManager : MonoBehaviour
     public int playerVit;
     public int playerMnd;
     public int playerSpd;
-    public float playerBaseHP;
+    public float playerBaseHP = 100;
     public float playerHP;
     public float playerAP;
 
@@ -40,7 +40,7 @@ public class StatManager : MonoBehaviour
     public int enemyVit;
     public int enemyMnd;
     public int enemySpd;
-    public float enemyBaseHP;
+    public float enemyBaseHP = 100;
     public float enemyHP;
     public float enemyAP;
 
@@ -66,7 +66,7 @@ public class StatManager : MonoBehaviour
 
     void Awake()
     {
-        if(instance != null && instance != this)
+        if (instance != null && instance != this)
         {
             Destroy(this);
         }
@@ -171,7 +171,7 @@ public class StatManager : MonoBehaviour
         playerAcc = (playerDex / enemySpd) * 100;
         Debug.Log("Player hit accuracy is " + playerAcc);
         enemyAcc = (enemyDex / playerSpd) * 100;
-        Debug.Log("Enemy hit accuracy is " + playerAcc);
+        Debug.Log("Enemy hit accuracy is " + enemyAcc);
     }
 
     public void SpdMultCalculator()
@@ -185,7 +185,9 @@ public class StatManager : MonoBehaviour
     {
         playerRestHP = (playerMnd * 10) / 2;
         Debug.Log("Player Rest HP value is " + playerRestHP);
-        enemyRestHP = (enemyMnd * 10 / 2);
+        enemyRestHP = (enemyMnd * 10) / 2;
         Debug.Log("Enemy Rest HP value is " + enemyRestHP);
     }
 }
+
+

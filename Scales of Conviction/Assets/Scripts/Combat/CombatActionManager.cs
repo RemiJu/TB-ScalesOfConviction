@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class CombatActionManager : MonoBehaviour
 {
@@ -8,11 +9,18 @@ public class CombatActionManager : MonoBehaviour
     public TurnManager turnManager;
     public BattleTimer playerBattleTimer;
     public BattleTimer enemyBattleTimer;
+    public TextMeshProUGUI playerDmgRecd;
+    public TextMeshProUGUI enemyDmgRecd;
+    public int damageOutput;
+    public bool isAttacking;
+    public bool isResting;
+    public bool isDefending;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        playerDmgRecd.gameObject.SetActive(false);
+        enemyDmgRecd.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -26,7 +34,23 @@ public class CombatActionManager : MonoBehaviour
         // Insert actual attack stuff
 
         Debug.Log("Player attacks!");
+        isAttacking = true;
+        PlayerDmgCalc(); //directs action to Player Command List function to determine what to do
         StartCoroutine(ActionWindow());
+    }
+
+    public void CommandDefend()
+    {
+        Debug.Log("Player defends!");
+        isDefending = true;
+        PlayerCommandList();
+    }
+    
+    public void CommandRest()
+    {
+        Debug.Log("Player rests!");
+        isResting = true;
+        PlayerCommandList();
     }
 
     public void EnemyAttack()
@@ -34,6 +58,7 @@ public class CombatActionManager : MonoBehaviour
         // Insert actual attack stuff
 
         Debug.Log("Enemy attacks!");
+        EnemyDmgCalc();
         StartCoroutine(ActionWindow());
     }
 
@@ -45,6 +70,71 @@ public class CombatActionManager : MonoBehaviour
             Destroy(child.gameObject);
         }
         Debug.Log("Cleansed windows on CanvasRoot.");
+    }
+    public void PlayerDmgCalc()
+    {
+        damageOutput = 0; //reset to 0 before recalculating
+        damageOutput = StatManager.Instance.playerStr * 10;
+        Debug.Log("Player damage output is set to " + damageOutput);
+        enemyDmgRecd.gameObject.SetActive(true);
+        enemyDmgRecd.text = (damageOutput.ToString());
+        PlayerCommandList();
+        StartCoroutine(DamageDisplay());
+    }
+
+    public void EnemyDmgCalc()
+    {
+        damageOutput = 0; //reset to 0 before recalculating
+        damageOutput = StatManager.Instance.enemyStr * 10;
+        Debug.Log("Enemy damage output is set to " + damageOutput);
+        playerDmgRecd.gameObject.SetActive(true);
+        playerDmgRecd.text = (damageOutput.ToString());
+        EnemyCommandList();
+        StartCoroutine(DamageDisplay());
+    }
+
+    public void PlayerRestCalc()
+    {
+        damageOutput = 0;
+        StatManager.Instance.MndHPCalculator();
+        damageOutput = Mathf.CeilToInt(StatManager.Instance.playerRestHP);
+        Debug.Log("Player rest amount is calculated to be " + damageOutput);
+        playerDmgRecd.gameObject.SetActive(true);
+        playerDmgRecd.color = new Color(0.2f, 0.88f, 0.22f, 1);
+        playerDmgRecd.text = (damageOutput.ToString());
+        StartCoroutine(DamageDisplay());
+    }
+
+    public void PlayerCommandList()
+    {
+        if(isAttacking)
+        {
+            StatManager.Instance.enemyHP -= damageOutput;
+            Debug.Log("removing " + damageOutput + " from enemy");
+            isAttacking = false;
+        }
+        if(isDefending)
+        {
+            Debug.Log("not implemented");
+            StartCoroutine(ActionWindow());
+        }
+        if (isResting)
+        {
+            PlayerRestCalc();
+            StartCoroutine(ActionWindow());
+        }
+    }
+
+    public void EnemyCommandList()
+    {
+        if(isDefending)
+        {
+            damageOutput = 1;
+            playerDmgRecd.text = (damageOutput.ToString());
+            isDefending = false;
+        }
+        StatManager.Instance.playerHP -= damageOutput;
+        Debug.Log("removing " + damageOutput + " from player");
     }
 
     private IEnumerator ActionWindow()
@@ -72,6 +162,23 @@ public class CombatActionManager : MonoBehaviour
             turnManager.enemysTurn = false;
             Debug.Log("enemysTurn is false");
             CleanseCanvasRoot();
+        }
+    }
+
+    private IEnumerator DamageDisplay()
+    {
+        yield return new WaitForSeconds(1);
+        playerDmgRecd.text = ("");
+        playerDmgRecd.color = new Color(1, 1, 1, 1);
+        enemyDmgRecd.text = ("");
+        enemyDmgRecd.color = new Color(1, 1, 1, 1);
+        playerDmgRecd.gameObject.SetActive(false);
+        enemyDmgRecd.gameObject.SetActive(false);
+        if(isResting)
+        {
+            damageOutput = damageOutput + (-damageOutput); // changes to a negative number so it heals instead of damages
+            StatManager.Instance.playerHP = StatManager.Instance.playerHP + damageOutput;
+            isResting = false;
         }
     }
 }

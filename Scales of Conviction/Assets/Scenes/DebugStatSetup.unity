@@ -328,7 +328,7 @@ MonoBehaviour:
   m_CharacterValidation: 0
   m_RegexValue: 
   m_GlobalPointSize: 24
-  m_CharacterLimit: 0
+  m_CharacterLimit: 2
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls: []
@@ -1129,7 +1129,7 @@ MonoBehaviour:
   playerVit: 0
   playerMnd: 0
   playerSpd: 0
-  playerBaseHP: 0
+  playerBaseHP: 100
   playerHP: 0
   playerAP: 0
   playerAcc: 0
@@ -1140,7 +1140,7 @@ MonoBehaviour:
   enemyVit: 0
   enemyMnd: 0
   enemySpd: 0
-  enemyBaseHP: 0
+  enemyBaseHP: 100
   enemyHP: 0
   enemyAP: 0
   enemyAcc: 0
@@ -1308,6 +1308,7 @@ GameObject:
   - component: {fileID: 160756197}
   - component: {fileID: 160756196}
   - component: {fileID: 160756195}
+  - component: {fileID: 160756198}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -1378,7 +1379,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 160756196}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 160756198}
+        m_TargetAssemblyTypeName: CommenceBattle, Assembly-CSharp
+        m_MethodName: CommenceBattleScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &160756196
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1417,6 +1430,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 160756193}
   m_CullTransparentMesh: 1
+--- !u!114 &160756198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 160756193}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa3fb7af8731bf44c89bf3a125be130f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  battleScene: Combat
+  playerStr: 0
+  playerDex: 0
+  playerVit: 0
 --- !u!1 &201979351
 GameObject:
   m_ObjectHideFlags: 0
@@ -1641,6 +1670,7 @@ GameObject:
   - component: {fileID: 244195183}
   - component: {fileID: 244195185}
   - component: {fileID: 244195184}
+  - component: {fileID: 244195186}
   m_Layer: 5
   m_Name: ACCValue
   m_TagString: Untagged
@@ -1764,6 +1794,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 244195182}
   m_CullTransparentMesh: 1
+--- !u!114 &244195186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 244195182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37b0958303a10354e8e2c0603d1fa99b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  accuracyPercentage: 1
+  displayValue: {fileID: 244195184}
 --- !u!1 &283179989
 GameObject:
   m_ObjectHideFlags: 0
@@ -3676,6 +3720,7 @@ GameObject:
   - component: {fileID: 806509147}
   - component: {fileID: 806509149}
   - component: {fileID: 806509148}
+  - component: {fileID: 806509150}
   m_Layer: 5
   m_Name: totalHPvalue_txt
   m_TagString: Untagged
@@ -3799,6 +3844,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 806509146}
   m_CullTransparentMesh: 1
+--- !u!114 &806509150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 806509146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87d902f63310c224da9deed5c805cc56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  whoseHP: 1
+  totalHealthText: {fileID: 806509148}
+  currentHealthText: {fileID: 0}
+  capturedMaxHealth: 0
+  updateMaxHPInRealtime: 1
 --- !u!1 &862661820
 GameObject:
   m_ObjectHideFlags: 0
@@ -4374,7 +4436,7 @@ MonoBehaviour:
   m_CharacterValidation: 0
   m_RegexValue: 
   m_GlobalPointSize: 24
-  m_CharacterLimit: 0
+  m_CharacterLimit: 2
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls: []
@@ -5312,6 +5374,7 @@ GameObject:
   - component: {fileID: 1315415101}
   - component: {fileID: 1315415100}
   - component: {fileID: 1315415099}
+  - component: {fileID: 1315415102}
   m_Layer: 5
   m_Name: InputField (TMP)
   m_TagString: Untagged
@@ -5397,7 +5460,7 @@ MonoBehaviour:
   m_CharacterValidation: 0
   m_RegexValue: 
   m_GlobalPointSize: 24
-  m_CharacterLimit: 0
+  m_CharacterLimit: 2
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls: []
@@ -5418,7 +5481,19 @@ MonoBehaviour:
       m_Calls: []
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1315415102}
+        m_TargetAssemblyTypeName: InputFieldStats, Assembly-CSharp
+        m_MethodName: UpdateIntegerValue
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_OnTouchScreenKeyboardStatusChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -5475,6 +5550,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1315415097}
   m_CullTransparentMesh: 1
+--- !u!114 &1315415102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1315415097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e281257978df6742baebfc6bf216133, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isOpponent: 1
+  whichStatGoesTo: 1
+  inputInt: 0
 --- !u!1 &1317155919
 GameObject:
   m_ObjectHideFlags: 0
@@ -6131,6 +6221,7 @@ GameObject:
   - component: {fileID: 1388268770}
   - component: {fileID: 1388268769}
   - component: {fileID: 1388268768}
+  - component: {fileID: 1388268771}
   m_Layer: 5
   m_Name: InputField (TMP)
   m_TagString: Untagged
@@ -6216,7 +6307,7 @@ MonoBehaviour:
   m_CharacterValidation: 0
   m_RegexValue: 
   m_GlobalPointSize: 24
-  m_CharacterLimit: 0
+  m_CharacterLimit: 2
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls: []
@@ -6237,7 +6328,19 @@ MonoBehaviour:
       m_Calls: []
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1388268771}
+        m_TargetAssemblyTypeName: InputFieldStats, Assembly-CSharp
+        m_MethodName: UpdateIntegerValue
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_OnTouchScreenKeyboardStatusChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -6294,6 +6397,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1388268766}
   m_CullTransparentMesh: 1
+--- !u!114 &1388268771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1388268766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e281257978df6742baebfc6bf216133, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isOpponent: 1
+  whichStatGoesTo: 3
+  inputInt: 0
 --- !u!1 &1462565501
 GameObject:
   m_ObjectHideFlags: 0
@@ -6493,6 +6611,7 @@ GameObject:
   - component: {fileID: 1530108851}
   - component: {fileID: 1530108853}
   - component: {fileID: 1530108852}
+  - component: {fileID: 1530108854}
   m_Layer: 5
   m_Name: totalHPvalue_txt
   m_TagString: Untagged
@@ -6616,6 +6735,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1530108850}
   m_CullTransparentMesh: 1
+--- !u!114 &1530108854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1530108850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87d902f63310c224da9deed5c805cc56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  whoseHP: 0
+  totalHealthText: {fileID: 1530108852}
+  currentHealthText: {fileID: 0}
+  capturedMaxHealth: 0
+  updateMaxHPInRealtime: 1
 --- !u!1 &1555222751
 GameObject:
   m_ObjectHideFlags: 0
@@ -6764,6 +6900,7 @@ GameObject:
   - component: {fileID: 1573343929}
   - component: {fileID: 1573343928}
   - component: {fileID: 1573343927}
+  - component: {fileID: 1573343930}
   m_Layer: 5
   m_Name: InputField (TMP)
   m_TagString: Untagged
@@ -6849,7 +6986,7 @@ MonoBehaviour:
   m_CharacterValidation: 0
   m_RegexValue: 
   m_GlobalPointSize: 24
-  m_CharacterLimit: 0
+  m_CharacterLimit: 2
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls: []
@@ -6870,7 +7007,19 @@ MonoBehaviour:
       m_Calls: []
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1573343930}
+        m_TargetAssemblyTypeName: InputFieldStats, Assembly-CSharp
+        m_MethodName: UpdateIntegerValue
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_OnTouchScreenKeyboardStatusChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -6927,6 +7076,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1573343925}
   m_CullTransparentMesh: 1
+--- !u!114 &1573343930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1573343925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e281257978df6742baebfc6bf216133, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isOpponent: 1
+  whichStatGoesTo: 0
+  inputInt: 0
 --- !u!1 &1596889195
 GameObject:
   m_ObjectHideFlags: 0
@@ -7025,7 +7189,7 @@ MonoBehaviour:
   m_CharacterValidation: 0
   m_RegexValue: 
   m_GlobalPointSize: 24
-  m_CharacterLimit: 0
+  m_CharacterLimit: 2
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls: []
@@ -7364,7 +7528,7 @@ MonoBehaviour:
   m_CharacterValidation: 0
   m_RegexValue: 
   m_GlobalPointSize: 24
-  m_CharacterLimit: 0
+  m_CharacterLimit: 2
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls: []
@@ -8431,6 +8595,7 @@ GameObject:
   - component: {fileID: 1779257104}
   - component: {fileID: 1779257103}
   - component: {fileID: 1779257102}
+  - component: {fileID: 1779257105}
   m_Layer: 5
   m_Name: InputField (TMP)
   m_TagString: Untagged
@@ -8516,7 +8681,7 @@ MonoBehaviour:
   m_CharacterValidation: 0
   m_RegexValue: 
   m_GlobalPointSize: 24
-  m_CharacterLimit: 0
+  m_CharacterLimit: 2
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls: []
@@ -8537,7 +8702,19 @@ MonoBehaviour:
       m_Calls: []
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1779257105}
+        m_TargetAssemblyTypeName: InputFieldStats, Assembly-CSharp
+        m_MethodName: UpdateIntegerValue
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_OnTouchScreenKeyboardStatusChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -8594,6 +8771,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1779257100}
   m_CullTransparentMesh: 1
+--- !u!114 &1779257105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1779257100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e281257978df6742baebfc6bf216133, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isOpponent: 1
+  whichStatGoesTo: 2
+  inputInt: 0
 --- !u!1 &1823656390
 GameObject:
   m_ObjectHideFlags: 0
@@ -8692,7 +8884,7 @@ MonoBehaviour:
   m_CharacterValidation: 0
   m_RegexValue: 
   m_GlobalPointSize: 24
-  m_CharacterLimit: 0
+  m_CharacterLimit: 2
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls: []
@@ -9464,6 +9656,7 @@ GameObject:
   - component: {fileID: 2072168144}
   - component: {fileID: 2072168143}
   - component: {fileID: 2072168142}
+  - component: {fileID: 2072168145}
   m_Layer: 5
   m_Name: InputField (TMP)
   m_TagString: Untagged
@@ -9549,7 +9742,7 @@ MonoBehaviour:
   m_CharacterValidation: 0
   m_RegexValue: 
   m_GlobalPointSize: 24
-  m_CharacterLimit: 0
+  m_CharacterLimit: 2
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls: []
@@ -9570,7 +9763,19 @@ MonoBehaviour:
       m_Calls: []
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2072168145}
+        m_TargetAssemblyTypeName: InputFieldStats, Assembly-CSharp
+        m_MethodName: UpdateIntegerValue
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_OnTouchScreenKeyboardStatusChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -9627,6 +9832,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2072168140}
   m_CullTransparentMesh: 1
+--- !u!114 &2072168145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2072168140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e281257978df6742baebfc6bf216133, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isOpponent: 1
+  whichStatGoesTo: 4
+  inputInt: 0
 --- !u!1 &2074652792
 GameObject:
   m_ObjectHideFlags: 0
