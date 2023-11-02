@@ -7,6 +7,7 @@ Take turns to Gather Points in the overworld in order to buff yourself and enter
 WASD for Movement in Overworld
 
 # Combat Controls:
+Use your mouse to click on the ability panel.
 
 # Credits:
 Roberto Gutierrez - 1331161
