@@ -3,6 +3,9 @@ Turn Based Game Assignment
 
 Take turns to Gather Points in the overworld in order to buff yourself and enter combat with an advantage over your enemies.
 
+To play the build:
+Download the 'ScalesOfConviction-TestBuild' directory and run the executable inside.
+
 # Overworld Controls:
 WASD for Movement in Overworld
 
