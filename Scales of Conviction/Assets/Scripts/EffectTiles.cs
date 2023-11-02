@@ -14,13 +14,13 @@ public class EffectTiles : MonoBehaviour
             if (other.gameObject.tag == "Player")
             {
                 StatManager.Instance.playerStr += increment;
-                StatManager.Instance.playerAP += halfIncrement;
+                StatManager.Instance.playerSpd += halfIncrement;
                 StatManager.Instance.playerPoints += ApUp;
             }
             else if (other.gameObject.tag == "Enemy")
             {
                 StatManager.Instance.enemyStr += increment;
-                StatManager.Instance.enemyAP += halfIncrement;
+                StatManager.Instance.enemySpd += halfIncrement;
                 StatManager.Instance.enemyPoints += ApUp;
             }
             else
@@ -32,14 +32,14 @@ public class EffectTiles : MonoBehaviour
         {
             if (other.gameObject.tag == "Player")
             {
-                StatManager.Instance.playerAP += increment;
-                StatManager.Instance.playerDex += halfIncrement;
+                StatManager.Instance.playerBaseHP += increment;
+                StatManager.Instance.playerMnd += halfIncrement;
                 StatManager.Instance.playerPoints += ApUp;
             }
             else if (other.gameObject.tag == "Enemy")
             {
-                StatManager.Instance.enemyAP += increment;
-                StatManager.Instance.enemyDex += halfIncrement;
+                StatManager.Instance.enemyBaseHP += increment;
+                StatManager.Instance.enemyMnd+= halfIncrement;
                 StatManager.Instance.enemyPoints += ApUp;
             }
             else
@@ -51,13 +51,13 @@ public class EffectTiles : MonoBehaviour
         {
             if (other.gameObject.tag == "Player")
             {
-                StatManager.Instance.playerMnd += increment;
+                StatManager.Instance.playerVit += increment;
                 StatManager.Instance.playerSpd += halfIncrement;
                 StatManager.Instance.playerPoints += ApUp;
             }
             else if (other.gameObject.tag == "Enemy")
             {
-                StatManager.Instance.enemyMnd += increment;
+                StatManager.Instance.enemyVit += increment;
                 StatManager.Instance.enemySpd += halfIncrement;
                 StatManager.Instance.enemyPoints += ApUp;
             }

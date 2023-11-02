@@ -74,7 +74,13 @@ public class CombatActionManager : MonoBehaviour
     public void PlayerDmgCalc()
     {
         damageOutput = 0; //reset to 0 before recalculating
-        damageOutput = StatManager.Instance.playerStr * 10;
+        float baseDmg = StatManager.Instance.playerStr * 10;
+        int randomValue = Random.Range(1, 3);
+        damageOutput = Mathf.CeilToInt(baseDmg);
+        for (int i = 0; i < randomValue; i++)
+        {
+            damageOutput += 5;
+        }
         Debug.Log("Player damage output is set to " + damageOutput);
         enemyDmgRecd.gameObject.SetActive(true);
         enemyDmgRecd.text = (damageOutput.ToString());
@@ -85,7 +91,13 @@ public class CombatActionManager : MonoBehaviour
     public void EnemyDmgCalc()
     {
         damageOutput = 0; //reset to 0 before recalculating
-        damageOutput = StatManager.Instance.enemyStr * 10;
+        float baseDmg = StatManager.Instance.enemyStr * 10;
+        int randomValue = Random.Range(1, 3);
+        damageOutput = Mathf.CeilToInt(baseDmg);
+        for(int i = 0; i < randomValue; i++)
+        {
+            damageOutput += 5;
+        }
         Debug.Log("Enemy damage output is set to " + damageOutput);
         playerDmgRecd.gameObject.SetActive(true);
         playerDmgRecd.text = (damageOutput.ToString());
